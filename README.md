@@ -20,7 +20,7 @@ Other dependencies can be found in the folder ./libs/.
 
 We use the source code of [Trimesh](http://graphics.stanford.edu/software/trimesh/) and [Crestline](http://www2.riken.jp/brict/Yoshizawa/Research/Crest.html) in our project.
 
-The compiled executable demo can be found here
+The compiled executable demo can be found [here](http://yixina.net/projects/FeatureSeg/FeatureSeg_demo.zip)
 
 ## Run Executable Demo
 ![tool](pictures/tool.png) 
@@ -32,27 +32,27 @@ The algorithm takes feature line from crestline or user sketches as input, and c
 
 ## Interaction
 
-User will use a mouse and shift/control/alt key for interaction. We provide five types of operation, global refinement/coarsening, local refinement/coarsening, and feature sketching.
+User will use a mouse and shift/control/alt key for interaction. We provide five types of operation, that is, global refinement/coarsening, local refinement/coarsening, and feature sketching.
 
-### global refinement
+### Global refinement
 Hold Shift + MouseWheel Up =  increase alpha globally
 ![global-reveal](pictures/global-reveal.gif) 
 
-### global coarsening
+### Global coarsening
 Hold Shift + MouseWheel Down =  decrease alpha globally
 ![global-conceal](pictures/global-conceal.gif) 
 
-### local refinement
-Firstly, paint a region: Hold Shift + Left-Mouse + Mouse move;
+### Local refinement
+Firstly, paint a region by Hold Shift + Left-Mouse + Mouse move; 
 Then, Hold Shift + MouseWheel Up to increase alpha locally(features inside painted region).
 ![local-reveal](pictures/local-reveal.gif) 
 
-### local coarsening
-Firstly, paint a region: Hold Shift + Left-Mouse + Mouse move;
+### Local coarsening
+Firstly, paint a region by Hold Shift + Left-Mouse + Mouse move; 
 Then, Hold Shift + MouseWheel Down to decrease alpha locally(features inside painted region).
 ![local-conceal](pictures/local-conceal.gif) 
 
-### feature sketching
+### Feature sketching
 Hold Alt + Left-Mouse + Mouse move = draw curve on mesh
 ![cut](pictures/cut.gif) 
 
