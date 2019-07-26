@@ -1,0 +1,10 @@
+we use crestline as defaut feature line, which lies on the ridge and valleys of a shape.
+the computation of crestline are quite sensitive to the size of neighborehood.
+
+So, for a shape mainly composing of sharp regions, we suggest a smaller size of neighborehood, such as octaflower,
+and for other example, a slightly larger scale would return better feature lines.
+
+Beside crestline, users are allow to use their own computation of feature line by only minor revision of our source code.
+Although we don't propose any new method on tracing feature sensitive curves, our algorithm is open for any input of curves, including interactive sketches.
+
+In our tool, user can use key Q/W to switch the different scale of crestline. For some shape, such as octaflower, the difference is significant.
