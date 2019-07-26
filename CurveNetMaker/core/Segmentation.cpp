@@ -203,7 +203,7 @@ void FeatureLine::computeCrestLine(std::vector<bool>& boundaryEdge)
 	//she wants those salient features become less/none salient. This happens when we want to refine the segmentation iteratively, which requiring dynamic multi-sacle features.
 	//This is simply done with boundaryEdge, that is constraints, that neighbores of a vertices can only lie on one side of which. 
 
-	cout << "compute crest line(scale:" << scale << ")" << endl;
+	cout << "compute crest line(scale:" << crestline_scale << ")" << endl;
 
 	if (boundaryEdge.empty()) boundaryEdge.resize(myMesh->getEdges().size(), false);
 
@@ -251,7 +251,7 @@ void FeatureLine::computeCrestLine(std::vector<bool>& boundaryEdge)
 		usedVers.push_back(v_it->id());
 		std::vector<int> frontVerts = usedVers;
 		unsigned count = 0;
-		while (count<scale)
+		while (count<crestline_scale)
 		{
 			count++;
 			std::vector<int> nextVerts(1, -1);
@@ -301,7 +301,7 @@ void FeatureLine::computeCrestLine(std::vector<bool>& boundaryEdge)
 	double* fFeature;
 	unsigned* fEdges;
 	unsigned offset;
-	crestLineGen(vadj, vadjNum, vertices, vNum, faces, fNum, scale, 1,
+	crestLineGen(vadj, vadjNum, vertices, vNum, faces, fNum, crestline_scale, 1,
 		pNum, cNum, eNum, fPoints, fPointType, fFeature, fEdges, crestLineoffset);
 
 	//read crestlines;

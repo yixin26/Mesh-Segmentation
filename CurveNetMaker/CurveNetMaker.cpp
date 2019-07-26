@@ -149,6 +149,26 @@ void CurveNetMaker::SaveCurveFile()
 
 void CurveNetMaker::keyPressEvent(QKeyEvent *e)
 {
+	switch (e->key())
+	{
+	case Qt::Key_Q:
+		m_meshSegment->crestline_scale = 1;
+		break;
+	case Qt::Key_W:
+		m_meshSegment->crestline_scale = 2;
+		break;
+	case Qt::Key_E:
+		m_meshSegment->crestline_scale = 3;
+		break;
+	}
+	//if (e->key() < 4 && e->key() > 0)
+	if (e->key() == Qt::Key_Q || e->key() == Qt::Key_W || e->key() == Qt::Key_E)
+	{
+		ComputeCrestLine();
+		OverSegmentation();
+		ui.openGLWidget->paintGL();
+	}
+
 	ui.openGLWidget->keyPressEvent(e);
 }
 void CurveNetMaker::keyReleaseEvent(QKeyEvent *e)

@@ -129,7 +129,7 @@ class MeshProperty {
 public:
 
 	MeshProperty() {
-		myMesh = NULL; d_fitting = 4; d_monge = 4; scale = 2; //modify crestline scale
+		myMesh = NULL; d_fitting = 4; d_monge = 4; crestline_scale = 2; //modify crestline scale
 		sharpnessRangeLow = 1.0; sharpnessRangeHigh = 0.5; sharpnessRangeInterval = 1.0;
 		metricVariation = 0; metricParameter = 0.05; //modify metric parameter
 		showSDF = showGradSDF = false; showConcavity = false; gradLineWidth = 5; showSDFByText = showSDFLpp = false;
@@ -175,7 +175,7 @@ public:
 
 	bool		showSDFByText, showSDFLpp;
 
-	unsigned	scale;
+	unsigned	crestline_scale;
 	double		sharpnessRangeLow, sharpnessRangeHigh, sharpnessRangeInterval;
 	bool		showSDF, showGradSDF, showConcavity;
 
