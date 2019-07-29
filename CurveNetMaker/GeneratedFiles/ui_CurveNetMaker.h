@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CurveNetMaker.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.2
+** Created by: Qt User Interface Compiler version 5.12.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -19,6 +19,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "myglcanvas.h"
 
@@ -32,11 +33,13 @@ public:
     QAction *OpenMeshFile;
     QWidget *centralWidget;
     MyGLCanvas *openGLWidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QCheckBox *FeatureCheckBox;
-    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *AlphaTxt;
     QDoubleSpinBox *AlphaSpin;
+    QLabel *label;
     QCheckBox *SmoothBoundaryCheckBox;
     QMenuBar *menuBar;
     QMenu *menuOpen;
@@ -47,13 +50,11 @@ public:
         if (CurveNetMakerClass->objectName().isEmpty())
             CurveNetMakerClass->setObjectName(QString::fromUtf8("CurveNetMakerClass"));
         CurveNetMakerClass->resize(1600, 1000);
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(CurveNetMakerClass->sizePolicy().hasHeightForWidth());
         CurveNetMakerClass->setSizePolicy(sizePolicy);
-        CurveNetMakerClass->setMinimumSize(QSize(1600, 1000));
-        CurveNetMakerClass->setMaximumSize(QSize(1600, 1000));
         CurveNetMakerClass->setStyleSheet(QString::fromUtf8(""));
         OpenMesh = new QAction(CurveNetMakerClass);
         OpenMesh->setObjectName(QString::fromUtf8("OpenMesh"));
@@ -68,60 +69,74 @@ public:
         openGLWidget = new MyGLCanvas(centralWidget);
         openGLWidget->setObjectName(QString::fromUtf8("openGLWidget"));
         openGLWidget->setGeometry(QRect(0, 0, 1600, 930));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(openGLWidget->sizePolicy().hasHeightForWidth());
-        openGLWidget->setSizePolicy(sizePolicy1);
-        FeatureCheckBox = new QCheckBox(centralWidget);
+        sizePolicy.setHeightForWidth(openGLWidget->sizePolicy().hasHeightForWidth());
+        openGLWidget->setSizePolicy(sizePolicy);
+        openGLWidget->setAutoFillBackground(false);
+        verticalLayoutWidget = new QWidget(centralWidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 202, 80));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        FeatureCheckBox = new QCheckBox(verticalLayoutWidget);
         FeatureCheckBox->setObjectName(QString::fromUtf8("FeatureCheckBox"));
-        FeatureCheckBox->setGeometry(QRect(570, 942, 131, 21));
-        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(FeatureCheckBox->sizePolicy().hasHeightForWidth());
-        FeatureCheckBox->setSizePolicy(sizePolicy2);
+        sizePolicy.setHeightForWidth(FeatureCheckBox->sizePolicy().hasHeightForWidth());
+        FeatureCheckBox->setSizePolicy(sizePolicy);
+        FeatureCheckBox->setMinimumSize(QSize(200, 0));
         FeatureCheckBox->setLayoutDirection(Qt::LeftToRight);
         FeatureCheckBox->setChecked(false);
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(740, 943, 111, 40));
-        horizontalLayout = new QHBoxLayout(layoutWidget);
-        horizontalLayout->setSpacing(0);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+
+        verticalLayout->addWidget(FeatureCheckBox);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(10);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setSizeConstraint(QLayout::SetFixedSize);
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        AlphaTxt = new QLabel(layoutWidget);
+        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        AlphaTxt = new QLabel(verticalLayoutWidget);
         AlphaTxt->setObjectName(QString::fromUtf8("AlphaTxt"));
-        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(AlphaTxt->sizePolicy().hasHeightForWidth());
-        AlphaTxt->setSizePolicy(sizePolicy3);
-        AlphaTxt->setMinimumSize(QSize(50, 0));
+        sizePolicy.setHeightForWidth(AlphaTxt->sizePolicy().hasHeightForWidth());
+        AlphaTxt->setSizePolicy(sizePolicy);
+        AlphaTxt->setMinimumSize(QSize(0, 0));
+        AlphaTxt->setMaximumSize(QSize(60, 16777215));
         AlphaTxt->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout->addWidget(AlphaTxt);
 
-        AlphaSpin = new QDoubleSpinBox(layoutWidget);
+        AlphaSpin = new QDoubleSpinBox(verticalLayoutWidget);
         AlphaSpin->setObjectName(QString::fromUtf8("AlphaSpin"));
         sizePolicy.setHeightForWidth(AlphaSpin->sizePolicy().hasHeightForWidth());
         AlphaSpin->setSizePolicy(sizePolicy);
+        AlphaSpin->setMaximumSize(QSize(60, 16777215));
+        AlphaSpin->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         AlphaSpin->setMaximum(10.000000000000000);
         AlphaSpin->setSingleStep(0.050000000000000);
         AlphaSpin->setValue(0.500000000000000);
 
         horizontalLayout->addWidget(AlphaSpin);
 
-        SmoothBoundaryCheckBox = new QCheckBox(centralWidget);
+        label = new QLabel(verticalLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout->addWidget(label);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        SmoothBoundaryCheckBox = new QCheckBox(verticalLayoutWidget);
         SmoothBoundaryCheckBox->setObjectName(QString::fromUtf8("SmoothBoundaryCheckBox"));
-        SmoothBoundaryCheckBox->setGeometry(QRect(930, 942, 111, 21));
+        sizePolicy.setHeightForWidth(SmoothBoundaryCheckBox->sizePolicy().hasHeightForWidth());
+        SmoothBoundaryCheckBox->setSizePolicy(sizePolicy);
+        SmoothBoundaryCheckBox->setMinimumSize(QSize(200, 0));
         SmoothBoundaryCheckBox->setChecked(true);
+
+        verticalLayout->addWidget(SmoothBoundaryCheckBox);
+
         CurveNetMakerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(CurveNetMakerClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1600, 23));
+        menuBar->setGeometry(QRect(0, 0, 1600, 18));
         sizePolicy.setHeightForWidth(menuBar->sizePolicy().hasHeightForWidth());
         menuBar->setSizePolicy(sizePolicy);
         menuOpen = new QMenu(menuBar);
@@ -153,6 +168,7 @@ public:
         OpenMeshFile->setText(QApplication::translate("CurveNetMakerClass", "Mesh", nullptr));
         FeatureCheckBox->setText(QApplication::translate("CurveNetMakerClass", "Show Feature Line", nullptr));
         AlphaTxt->setText(QApplication::translate("CurveNetMakerClass", "Alpha ", nullptr));
+        label->setText(QString());
         SmoothBoundaryCheckBox->setText(QApplication::translate("CurveNetMakerClass", "Smooth Boundary", nullptr));
         menuOpen->setTitle(QApplication::translate("CurveNetMakerClass", "Open", nullptr));
         menuSave->setTitle(QApplication::translate("CurveNetMakerClass", "Save", nullptr));

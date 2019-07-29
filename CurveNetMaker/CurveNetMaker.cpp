@@ -26,6 +26,12 @@ CurveNetMaker::CurveNetMaker(QWidget *parent)
 
 	//ui.openGLWidget->initializeGL();
 	ui.openGLWidget->pos_y = this->frameGeometry().height() - ui.openGLWidget->frameGeometry().height() - ui.menuBar->frameGeometry().height();
+
+	ui.AlphaSpin->setVisible(false);
+	ui.AlphaTxt->setVisible(false);
+	ui.FeatureCheckBox->setVisible(false);
+	ui.SmoothBoundaryCheckBox->setVisible(false);
+
 }
 
 void CurveNetMaker::ResetAll()
@@ -79,6 +85,11 @@ void CurveNetMaker::OpenMeshFile()
 
 		OverSegmentation();
 		ui.openGLWidget->paintGL();
+
+		ui.AlphaSpin->setVisible(true);
+		ui.AlphaTxt->setVisible(true);
+		ui.FeatureCheckBox->setVisible(true);
+		ui.SmoothBoundaryCheckBox->setVisible(true);
 	}
 }
 void CurveNetMaker::ConstructMesh(const char* fileName, const char* fileType)
@@ -185,4 +196,18 @@ void CurveNetMaker::wheelEvent(QWheelEvent *e)
 		ui.AlphaSpin->setDisabled(true);
 		//ui.AlphaSpin->setValue(m_meshSegment->graphFeature.alpha);
 	}
+}
+
+void CurveNetMaker::resizeEvent(QResizeEvent* event)
+{
+	QMainWindow::resizeEvent(event);
+	// Your code here
+	//int width = this->frameGeometry().width();
+	//int height = this->frameGeometry().height();
+	int width = ui.centralWidget->frameGeometry().width();
+	int height = ui.centralWidget->frameGeometry().height();
+	ui.openGLWidget->setFixedSize(QSize(width, height));
+	
+	ui.openGLWidget->resizeGL(width, height);
+	ui.openGLWidget->paintGL();
 }

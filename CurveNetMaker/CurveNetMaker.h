@@ -45,4 +45,6 @@ private:
 
 	void wheelEvent(QWheelEvent *e);
 
+	void resizeEvent(QResizeEvent* event);
+
 };

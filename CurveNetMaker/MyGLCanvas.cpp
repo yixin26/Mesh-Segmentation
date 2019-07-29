@@ -19,8 +19,6 @@ MyGLCanvas::~MyGLCanvas()
 
 void MyGLCanvas::initializeGL()
 {
-	setFocus();
-
 	m_width = this->frameGeometry().width();
 	m_height = this->frameGeometry().height();
 
@@ -51,7 +49,7 @@ void MyGLCanvas::initializeGL()
 	}
 
 	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_SRC_ALPHA, GL_ALPHA);
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 
 	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
@@ -189,6 +187,7 @@ void MyGLCanvas::paintGL()
 }
 void MyGLCanvas::resizeGL(int width, int height)
 {
+	setFocus();
 	if (!m_initialized)
 	{
 		initializeGL();
